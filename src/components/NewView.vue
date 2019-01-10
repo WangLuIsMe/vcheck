@@ -20,9 +20,10 @@
             @focus="onEditorFocus($event)"
             @change="onEditorChange($event)"
           ></quill-editor>
-          <button @click="chatAddContent()">提交</button>
+          <button @click="chatAddContent()" class="btn">提交</button>
         </div>
       </div>
+
 
       <ul class="comments">
         <h1>聊天评论内容</h1>
@@ -170,7 +171,7 @@ footer {
 }
 .view {
   width: 900px;
-  margin:25px auto 0;
+  margin:25px auto 50px;
 }
 .comments {
   display: flex;
@@ -276,5 +277,15 @@ footer {
   border-radius: 4px 4px;
   display: block;
   margin: 10px auto 0;
+}
+.btn{
+  background-color: rgb(65, 184, 131);
+  color: #fff;
+}
+</style>
+
+<style>
+.quill-editor{
+  /* height: 200px; */
 }
 </style>
