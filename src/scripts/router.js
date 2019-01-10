@@ -6,6 +6,7 @@ import NewView from '../components/NewView.vue'
 import Login from '../components/Login.vue'
 import Register from '../components/Register.vue'
 import NewPost from "../components/NewPost.vue"
+import UserMsg from "../components/UserMsg.vue"
 
 Vue.use(VueRouter);
 const routes = [{
@@ -31,6 +32,10 @@ const routes = [{
 {
     path: '/NewPost',
     component: NewPost
+},
+{
+    path: '/UserMsg',
+    component: UserMsg
 }
 ]
 

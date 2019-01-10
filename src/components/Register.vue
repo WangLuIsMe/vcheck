@@ -5,7 +5,7 @@
         <ul>
            <li><label></label>
             <div class="avatar">
-                <input type="file" @change="a" class="upload_file" ref="upload_file" file="../assets/avatar.jpg">
+                <input type="file" @change="a" class="upload_file" ref="upload_file">
                 <img :src="users.imageUrl"  alt="点击上传头像">
                 <input type="hidden"  v-model="users.imageUrl">
             </div> 
@@ -88,10 +88,19 @@ export default {
               return this.verify.Boolean;
           }
       },
+    //   verify_imgUrl(){
+    //       if(this.users.imageUrl != ''){
+    //           this.verify.Boolean = true;
+    //           return this.verify.Boolean;
+    //       }else{
+    //           this.verify.message.push("头像不能为空");
+    //           this.verify.Boolean = false;
+    //           return this.verify.Boolean;
+    //       }
+    //   },
     a(){
        let _this = this;
        let file = this.$refs.upload_file.files[0]
-       console.log(file)
        let reader = new FileReader(); 
         reader.onload = function(){
             _this.users.imageUrl=reader.result
@@ -114,6 +123,7 @@ export default {
         console.log(formData)
         this.axios.post('api/registerSave.php',formData)
         .then((res)=>{
+            console.log(res.data)
             alert(res.data.message)
             if(res.data.valid){
                 this.$router.push({path:'/Login'})
@@ -193,8 +203,8 @@ export default {
       width:100%;
       height:100%;
    }
-   .footer{
+   /* .footer{
        position: fixed;
        bottom: 0;
-   }
+   } */
 </style>

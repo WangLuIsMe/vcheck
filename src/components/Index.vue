@@ -72,8 +72,8 @@ export default {
     background: #000;
   } 
   .main li {
-    width: 80%;
-    margin: 0 auto;
+    width: 59%;
+    margin: 20px auto;
   }
   .data>div{
     text-align: center;
@@ -110,14 +110,10 @@ export default {
     float: left;
   }
 
-.clear::after
-  {
+.clear::after{
   content:"";
   display:block;
   clear:both;
-  }
-  .main li{
-    margin: 20px auto;
   }
   .footer{
     position: fixed;

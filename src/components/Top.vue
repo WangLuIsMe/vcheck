@@ -11,12 +11,16 @@
             <li>
                 <router-link to="/NewPost">发布聊天室</router-link>
             </li>
-            <li>
+            <li v-if="msg_boolean">
                 <router-link to="/Login">会员登陆</router-link>
             </li>
+             <li v-else @click="quit">{{msg}}</li>
             <li>
                 <router-link to="/Register">用户注册</router-link>
             </li>
+            <!-- <li>
+                <router-link to="/UserMsg">用户信息</router-link>
+            </li> -->
         </ul>
       </div>
     </div>
@@ -28,11 +32,25 @@ export default {
   name: 'top',
   data(){
     return{
-
+      msg_boolean:true,
+      msg:""
     }
   },
   props: {
     system:Object
+  },
+  created(){
+    this.msg = $cookies.get('username')
+    if(this.msg != null){
+      this.msg_boolean = false
+    }
+  },
+  methods:{
+    quit(){
+      if(confirm('确定要退出登陆吗?')){
+        document.cookie = ""
+      }
+    }
   }
 }
 </script>
