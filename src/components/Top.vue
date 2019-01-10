@@ -48,7 +48,13 @@ export default {
   methods:{
     quit(){
       if(confirm('确定要退出登陆吗?')){
-        document.cookie = ""
+        $cookies.remove('username')
+        $cookies.remove('userId')
+        $cookies.remove('userlevel')
+        if(!$cookies.get("username")){
+          alert("您已退出登陆")
+          this.$router.push({path:'/Register'})
+        }
       }
     }
   }

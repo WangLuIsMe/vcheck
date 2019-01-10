@@ -58,7 +58,6 @@ export default {
     if(!$cookies.get("username")){
       alert("您还未登陆")
       this.$router.push({path:'/Register'})
-
     }
   },
     components:{
